@@ -1,0 +1,85 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: white;
+    font-size:20pt;
+    background-color: #1F6ED4;
+    width:1280px;
+    text-align: center;
+}
+
+header {
+    color: white;
+    float:left;
+    text-align: center;
+    height: 70px;
+}
+
+nav {
+    float: left;
+    margin-left:50px;
+    width:80px;
+    font-size:30pt;
+    text-align: center;
+    color:white;
+    border:5px solid white;
+    border-radius: 10px;
+    background-color: white;
+}
+nav a{
+    color:#0000A1;
+}
+h1 {
+    margin: 0.5em 4.5em;
+}
+
+input, textarea {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    width: 35%;
+    background-color: #ffffff;
+    border: #56707f solid 1px;
+    border-radius: 3px;
+    color: #000000
+}
+
+select {
+    background-color: #ffffff;
+    border: #56707f solid 1px;
+    color: #000000;
+    width:200px;
+    height:40px;
+    font-size:16pt;
+    margin: 0.5em 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: 2em;
+
+}
+
+
+input[type="button"],input[type="submit"]  {
+    background-color: #ffffff;
+    width: 8em;
+    font-size:8pt;
+}
+
+input[type="button"],input[type="submit"],input[type="checkbox"], input[type="radio"], select:hover {
+    cursor: pointer;
+
+}
+
+textarea {
+    height: 15em;
+    margin: 0.5em 0;
+}
+
+section div{
+    margin-top: 0.5em ;
+}
+
+input[type="submit"]{
+    margin-bottom: 20px;
+}
