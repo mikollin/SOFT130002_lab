@@ -19,8 +19,8 @@ function showWindowHref(){
     if (urlstring!=undefined) { //判断是否有参数
         var str = urlstring.substr(0);
         let vars = str.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
+        for (let i = 0; i < vars.length; i++) {
+            let pair = vars[i].split("=");
             if (pair[0] == queryName) {
                 result=pair[1];  //逐个搜索
             }
@@ -38,12 +38,22 @@ let mul = document.getElementById("mul");
 mul.value=1;
 let i=0;
 let interval=setInterval(timeTest,5000);//页面载入后，每经过指定毫秒值后执行指定表达式，是间隔多次执行的
+let id =setInterval(function () {
+    if (new Date().getSeconds()==0){
+           clearInterval(id);
+           clearInterval(interval);
+    }
+},1);
+
 function timeTest(){
-mul.value=mul.value*2;
-i=i+1;
-if(i==10)
-    clearInterval(interval);
+    mul.value=mul.value*2;
+    i=i+1;
+    if(new Date().getSeconds()==0||i==10) {
+        clearInterval(interval);
+    }
+
 }
+
 //3. 判断输入框most里出现最多的字符，并统计出来。统计出是信息在most_result输入框内以"The most character is:" + index + " times:" + max的形式显示。
 //如果多个出现数量一样则选择一个即可。
 //请仅在arrSameStr函数内写代码。
@@ -55,7 +65,7 @@ let most_submit = document.getElementById("most_submit");
 most_submit.addEventListener('click',arrSameStr);
 function arrSameStr(){
 
-    mostv=most.value;
+    let mostv=most.value;
     let json = {};
     for (var i = 0; i < mostv.length; i++) {
         if(!json[mostv.charAt(i)]){
