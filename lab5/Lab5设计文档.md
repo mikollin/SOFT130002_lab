@@ -23,7 +23,7 @@ function showWindowHref(){
     //solve TypeError: Cannot read property 'split' of undefined
     urlstring=vars[1];//获取url中"?"符后的字串
     if (urlstring!=undefined) { //判断是否有参数
-        var str = urlstring.substr(0);
+        let str = urlstring.substr(0);
         let vars = str.split("&");
         for (let i = 0; i < vars.length; i++) {
             let pair = vars[i].split("=");
@@ -92,16 +92,16 @@ function arrSameStr(){
 
     let mostv=most.value;
     let json = {};
-    for (var i = 0; i < mostv.length; i++) {
+    for (let i = 0; i < mostv.length; i++) {
         if(!json[mostv.charAt(i)]){//这里mostv.charAt(i)分别会输出i位置的字符，json初始化设置为一个空对象。
             json[mostv.charAt(i)] = 1;//给一个初始值
         }else{
             json[mostv.charAt(i)]++;//有初始值后再次出现++
         }
     };
-    var iMax = 0;
-    var iIndex = '';
-    for(var i in json){
+    let iMax = 0;
+    let iIndex = '';
+    for(let i in json){
         if(json[i]>iMax){
             iMax = json[i];
             iIndex = i;
