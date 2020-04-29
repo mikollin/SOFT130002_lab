@@ -189,7 +189,28 @@ PoorCountry.prototype.saySad=function () {
 
 Object.create的继承：
 
-第一种方式（实际采用）：将第一个参数设为我要创建的对象developedCountry的原型即Country。之后给子类添加方法。
+第一种方式（实际采用）：
+
+将第一个参数设为我要创建的对象原型相似的父类原型。之后给子类的原型添加方法。z最后创建实例。
+
+```js
+function DevelopedCountry(){
+
+}
+   DevelopedCountry.prototype=Object.create(Country.prototype);
+    DevelopedCountry.prototype.sayHappy=function(){
+        //console.log("I am a Happy developed country.");
+        return "I am a Happy developed country.";
+    }
+let developedCountry=new DevelopedCountry();
+
+```
+
+
+
+第二种方式：
+
+将第一个参数设为我要创建的对象相似的父类对象即Country。之后给子类添加方法。
 
 ```js
 let developedCountry=Object.create(Country);
@@ -198,33 +219,6 @@ let developedCountry=Object.create(Country);
        return "I am a Happy developed country.";
    }
 ```
-
-第二种方式：（但这里改了父类的原型有点问题）为了让我的developedCountry对象拥有sayHappy方法先将原型中设置方法
-
-```js
-Country.prototype.sayHappy=function(){
-    //console.log("I am a Happy developed country.");
-    return "I am a Happy developed country.";
-}
-```
-
-对于将第一个参数设为我要创建的对象developedCountry的原型即Country.prototype。
-
-第三种操作可以如下：
-
-```js
-let developedCountry=Object.create(Country.prototype,{
-     sayHappy:{
-         value:function(){  //Object.create
-             return "I am a Happy developed country."
-        }
-     }
- });
-```
-
-将方法看成一种属性，value为function。
-
-调用同样为 console.log(developedCountry.sayHappy());
 
 
 

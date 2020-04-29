@@ -306,22 +306,21 @@ PoorCountry.prototype.saySad=function () {
 }
 let poorCountry=new PoorCountry();
 
-// Country.prototype.sayHappy=function(){
-//     //console.log("I am a Happy developed country.");
-//     return "I am a Happy developed country.";
-//}
-  let developedCountry=Object.create(Country);//,{
+function DevelopedCountry(){
+
+}
+   DevelopedCountry.prototype=Object.create(Country.prototype);//,{
  //     sayHappy:{
  //         value:function(){  //Object.create
  //             return "I am a Happy developed country."
  //         }
  //     }
  // });
-    developedCountry.sayHappy=function(){
+    DevelopedCountry.prototype.sayHappy=function(){
         //console.log("I am a Happy developed country.");
         return "I am a Happy developed country.";
     }
-
+let developedCountry=new DevelopedCountry();
 
 // console.log(developingCountry.sayHi());
 // console.log(poorCountry.saySad());
