@@ -310,7 +310,7 @@ let poorCountry=new PoorCountry();
 //     //console.log("I am a Happy developed country.");
 //     return "I am a Happy developed country.";
 //}
-  let developedCountry=Object.create(Country.prototype);//,{
+  let developedCountry=Object.create(Country);//,{
  //     sayHappy:{
  //         value:function(){  //Object.create
  //             return "I am a Happy developed country."
@@ -328,7 +328,7 @@ let poorCountry=new PoorCountry();
 // console.log(developedCountry.sayHappy());
 
 
-//调用函数tet
+//调用函数test
 function test(){
     // testTime();//最后调用
     testMail("13812238483","ai324@126.com");

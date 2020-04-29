@@ -189,10 +189,10 @@ PoorCountry.prototype.saySad=function () {
 
 Object.create的继承：
 
-第一种方式（实际采用）：将第一个参数设为我要创建的对象developedCountry的原型即Country.prototype。之后给子类添加方法。
+第一种方式（实际采用）：将第一个参数设为我要创建的对象developedCountry的原型即Country。之后给子类添加方法。
 
 ```js
-let developedCountry=Object.create(Country.prototype);
+let developedCountry=Object.create(Country);
    developedCountry.sayHappy=function(){
        //console.log("I am a Happy developed country.");
        return "I am a Happy developed country.";
