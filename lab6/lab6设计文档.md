@@ -8,15 +8,23 @@
 
 #### 一些截图
 
+github截图：
+
+![github截图](img/github截图.png)
+
 本地命令行截图：
 
-<img src="/Users/yilingzhao/Desktop/web/SOFT130002_lab/lab6/img/lab6截图1.png" alt="lab6截图1" style="zoom:100%;" />
+<img src="img/lab6截图1.png" alt="lab6截图1" style="zoom:100%;" />
 
-![lab6截图2](/Users/yilingzhao/Desktop/web/SOFT130002_lab/lab6/img/lab6截图2.png)
+![lab6截图2](img/lab6截图2.png)
+
+按照样例的输出版本：
+
+![样例截图](img/样例截图.png)
 
 第一题整体的情况如下（为了方便这边直接列出两种情况）：
 
-![lab6-1](/Users/yilingzhao/Desktop/web/SOFT130002_lab/lab6/img/lab6-1.png)
+![lab6-1](img/lab6-1.png)
 
 #### 正则表达式的解释
 
