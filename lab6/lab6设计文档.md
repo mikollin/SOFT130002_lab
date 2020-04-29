@@ -48,7 +48,7 @@ Array是数组，可重复，可与map转换，如Array.from(map)，有length属
 
 原型链的继承：将子类的原型设为父类的实例，之后可以增加方法/覆盖父类方法。可以在构造函数中设置子类特有的属性。但其无法在不影响所有子类实例的情况下向父类构造函数传参。
 
-Object.create的继承：将第一个参数设为我要创建的对象的原型，本质上对已有对象做了浅复制，是原型式继承。
+Object.create的继承：将第一个参数设为我要创建的对象的原型，本质上对已有对象做了浅复制，是原型式继承。浅复制后再加上自己的属性和方法。
 
 具体的继承操作看第八题中的详解。
 
@@ -187,7 +187,19 @@ PoorCountry.prototype.saySad=function () {
 
 之后再实例化
 
-Object.create的继承：为了让我的developedCountry对象拥有sayHappy方法先将原型中设置方法
+Object.create的继承：
+
+第一种方式（实际采用）：将第一个参数设为我要创建的对象developedCountry的原型即Country.prototype。之后给子类添加方法。
+
+```js
+let developedCountry=Object.create(Country.prototype);
+   developedCountry.sayHappy=function(){
+       //console.log("I am a Happy developed country.");
+       return "I am a Happy developed country.";
+   }
+```
+
+第二种方式：（但这里改了父类的原型有点问题）为了让我的developedCountry对象拥有sayHappy方法先将原型中设置方法
 
 ```js
 Country.prototype.sayHappy=function(){
@@ -198,7 +210,7 @@ Country.prototype.sayHappy=function(){
 
 对于将第一个参数设为我要创建的对象developedCountry的原型即Country.prototype。
 
-第二种操作可以如下：
+第三种操作可以如下：
 
 ```js
 let developedCountry=Object.create(Country.prototype,{

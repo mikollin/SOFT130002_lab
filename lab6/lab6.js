@@ -306,10 +306,10 @@ PoorCountry.prototype.saySad=function () {
 }
 let poorCountry=new PoorCountry();
 
-Country.prototype.sayHappy=function(){
-    //console.log("I am a Happy developed country.");
-    return "I am a Happy developed country.";
-}
+// Country.prototype.sayHappy=function(){
+//     //console.log("I am a Happy developed country.");
+//     return "I am a Happy developed country.";
+//}
   let developedCountry=Object.create(Country.prototype);//,{
  //     sayHappy:{
  //         value:function(){  //Object.create
@@ -317,6 +317,10 @@ Country.prototype.sayHappy=function(){
  //         }
  //     }
  // });
+    developedCountry.sayHappy=function(){
+        //console.log("I am a Happy developed country.");
+        return "I am a Happy developed country.";
+    }
 
 
 // console.log(developingCountry.sayHi());
@@ -331,8 +335,8 @@ function test(){
     testMail("145defdqf","edj.dejn@rdjcn.enjd.com");
     testMail("13817772345","edj.dejn@rdjcn.enjd.com");
     testMail("145defdqf","edj@fudan.edu.cn");
-    testRedundancy("Is is the iS is  up up cost of of iS is GoIng going let Let new New we We is to To go Go and And FF ff");
-    //testRedundancy("Is is the iS is cost of of gasoline going up up");
+    //testRedundancy("Is is the iS is  up up cost of of iS is GoIng going let Let new New we We is to To go Go and And FF ff");
+    testRedundancy("Is is the iS is cost of of gasoline going up up");
     testKeyBoard("7_This_is_a_test", "_hs_s_a_es");
     testSpecialReverse("  hello  world!  ");
     //testSpecialReverse("the sky is blue");
