@@ -287,17 +287,17 @@ function Country() {
     this.name = "国家";
 }
 
-function DevelopingCountry(name){
-    Country.call(this,name);//借助构造函数
+function DevelopingCountry(){
+    Country.call(this);//借助构造函数
 }
 DevelopingCountry.prototype.sayHi=function(){
    return "Hi,i am a developing country.";
      //console.log()默认接受函数时会打印返回值，如果没有设定，会返回 undefined。
 }
- let developingCountry=new DevelopingCountry("developing country");
+ let developingCountry=new DevelopingCountry();
 
 function PoorCountry(){
-
+//Country.call(this);
 }
 PoorCountry.prototype=new Country();  //原型链
 PoorCountry.prototype.saySad=function () {
@@ -307,7 +307,7 @@ PoorCountry.prototype.saySad=function () {
 let poorCountry=new PoorCountry();
 
 function DevelopedCountry(){
-
+//Country.call(this);
 }
    DevelopedCountry.prototype=Object.create(Country.prototype);//,{
  //     sayHappy:{
@@ -316,6 +316,7 @@ function DevelopedCountry(){
  //         }
  //     }
  // });
+    DevelopedCountry.prototype.constructor=DevelopedCountry;
     DevelopedCountry.prototype.sayHappy=function(){
         //console.log("I am a Happy developed country.");
         return "I am a Happy developed country.";

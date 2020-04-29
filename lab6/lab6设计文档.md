@@ -165,9 +165,14 @@ console.log('['+result+']');
 
 #### 第八题
 
+这里原型链、和Object.create的继承方式在构造函数中没有用call 调用父类Country的构造函数，为了与借助构造函数方式的继承区分。（毕竟不是组合继承/寄生组合式继承）
+
 构造函数的继承：在子类构造函数DevelopingCountry中用call调用父类的构造函数，得到其属性值，再向其子类原型增加方法
 
 ```js
+function DevelopingCountry(){
+    Country.call(this);//借助构造函数
+}
 DevelopingCountry.prototype.sayHi=function(){
    return "Hi,i am a developing country.";
      //console.log()默认接受函数时会打印返回值，如果没有设定，会返回 undefined。
@@ -179,6 +184,10 @@ DevelopingCountry.prototype.sayHi=function(){
 原型链的继承：将子类PoorCountry的原型设为父类的实例，之后可以增加方法
 
 ```js
+function PoorCountry(){
+//Country.call(this);
+}
+PoorCountry.prototype=new Country();  //原型链
 PoorCountry.prototype.saySad=function () {
     //console.log("I am a sad poor country.");
     return "I am a sad poor country.";
@@ -195,9 +204,10 @@ Object.create的继承：
 
 ```js
 function DevelopedCountry(){
-
+//Country.call(this);
 }
    DevelopedCountry.prototype=Object.create(Country.prototype);
+   DevelopedCountry.prototype.constructor=DevelopedCountry;
     DevelopedCountry.prototype.sayHappy=function(){
         //console.log("I am a Happy developed country.");
         return "I am a Happy developed country.";
