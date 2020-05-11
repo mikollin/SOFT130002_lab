@@ -17,8 +17,8 @@
 在这里一开始我是直接用了写死的方法如下：
 
 ```js
-		var i=0;
-		var item1 = document.createElement('div');
+    var i=0;
+    var item1 = document.createElement('div');
     item1.className = "item";
 
    item1.innerHTML = '<h4> Genre:Human </h4>' + '<div class=' + '"' + 'inner-box' + '"' + '>' + '<h3 style="display:inline">' + works[i].author + '</h3>' + '<p style="display:inline"> &nbsp&nbsp lifetime:' + works[i].lifetime + '</p></div>';
