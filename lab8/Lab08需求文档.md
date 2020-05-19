@@ -14,9 +14,9 @@
 
 以下为截图：
 
-![image-20200511213717089](C:\Users\L2595\Desktop\class3\2020-web\Lab08\Lab08需求文档.assets\image-20200511213717089.png)
+![image-20200511213717089](Lab08需求文档.assets\image-20200511213717089.png)
 
-![image-20200511213656015](C:\Users\L2595\Desktop\class3\2020-web\Lab08\Lab08需求文档.assets\image-20200511213656015.png)
+![image-20200511213656015](Lab08需求文档.assets\image-20200511213656015.png)
 
 ## 文件结构
 

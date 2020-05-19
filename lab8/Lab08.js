@@ -2,7 +2,19 @@
 /*请在该区域内声明或者获取所要使用的全局变量*/
 /********************************************begin************************************/
 
-/*Global Variable Area */
+let index =0;
+
+let wrap = document.querySelector(".wrap");
+let container=document.querySelector(".container")
+let next = document.querySelector(".arrow_right");
+let prev = document.querySelector(".arrow_left");
+let dots = document.getElementsByTagName("span");
+let table=document.getElementsByTagName('table')[0];
+let td=document.getElementsByTagName('td');
+
+//let flag=0;
+
+let timer;
 
 /*********************************************end*************************************/
 
@@ -21,8 +33,51 @@
  * ⑤本部分只能使用原生JS。
  */
 /********************************************begin************************************/
+document.write("<style> body{background-color: lavender;}h3{display:none;}table{width: 600px;margin:40px auto 10px auto;font-weight: bold;table-layout: fixed; box-shadow: 2px 2px 5px #888888;border-radius:10px; }</style>");
+//fixed 列宽由表格宽度和列宽度设定。
 
-/*Code Here*/
+
+function showCurrentDot () {
+    for(let i = 0, len = dots.length; i < len; i++){
+        dots[i].className = "";
+    }
+    dots[index].className = "on";
+}
+
+next.onclick = function () {
+    next_pic();
+}
+prev.onclick = function () {
+    prev_pic();
+}
+function next_pic () {
+    let newLeft;
+    if(wrap.style.left === "-3600px"){
+        newLeft = -1200;
+    }else{
+        newLeft = parseInt(wrap.style.left)-600;
+    }
+    wrap.style.left = newLeft + "px";
+    index++;
+    if(index > 4){
+        index = 0;
+    }
+    showCurrentDot();
+}
+function prev_pic () {
+    let newLeft;
+    if(wrap.style.left === "0px"){
+        newLeft = -2400;
+    }else{
+        newLeft = parseInt(wrap.style.left)+600;
+    }
+    wrap.style.left = newLeft + "px";
+    index--;
+    if(index < 0){
+        index = 4;
+    }
+    showCurrentDot();
+}
 
 /*********************************************end*************************************/
 
@@ -39,7 +94,20 @@
  */
 /********************************************begin************************************/
 
-/*Code Here*/
+
+
+function autoPlay () {
+
+    timer = setInterval(function () {
+        next_pic();
+        //flag=1;
+
+    },2000);
+}
+ container.addEventListener("mouseover",function(){clearInterval(timer);});
+ container.addEventListener("mouseout",function(){autoPlay();});
+ autoPlay();
+
 
 /*********************************************end*************************************/
 
@@ -54,7 +122,29 @@
  */
 /********************************************begin************************************/
 
-/*Code Here*/
+for (let i = 0, len = dots.length; i < len; i++){
+
+        dots[i].addEventListener('click', function () {
+            //clearInterval(timer);
+            let dis = index - i;
+            //alert(dis);
+            if(index == 4 && parseInt(wrap.style.left)!==-3000){
+                dis = dis - 5;
+
+            }
+            //和使用prev和next相同，在最开始的照片5和最终的照片1在使用时会出现问题，导致符号和位数的出错，做相应地处理即可
+            if(index == 0 && parseInt(wrap.style.left)!== -600){
+                dis = 5 + dis;
+
+            }
+            //alert(dis);
+            wrap.style.left = (parseInt(wrap.style.left) +  dis * 600)+"px";
+            index = i;
+            showCurrentDot();
+
+        });
+
+}
 
 /*********************************************end*************************************/
 
@@ -68,6 +158,30 @@
  */
 /********************************************begin************************************/
 
-/*Code Here*/
+for(let i=0;i<td.length;i++) {
+     td[i].addEventListener('click',function(){
+         td[i].setAttribute('contenteditable', 'true');
+         //$(this).focus();
+         //let cur=$(this).createTextRange();
+         let r=window.getSelection();
+         //if(flag==1) {
+         r.collapse(td[i], 0);
+           //  flag=0;
+         //}
+
+
+     });
+
+     /*
+     td[i].addEventListener('mouseenter',function(){
+        flag=1;
+       // console.log("FF");
+     });
+
+      */
+      }
+
+
+//可编辑效果 contenteditable='true'
 
 /*********************************************end*************************************/
