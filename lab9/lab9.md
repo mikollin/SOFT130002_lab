@@ -61,7 +61,7 @@ You should install PHP first before this lab. If you have installed it, you can 
    >`/usr/local/bin/php`  
 7. Click `Apply` & `OK`  
 8. Configure `Deployment`   
-   ![sample](.//figures/4.png)  
+   ![sample](./figures/4.png)  
    select `+`,`Local or mounted folder`  
    Folder: select your project address  
    Web server url: `http://localhost:63342` (63342 is the port you set when you add configurations)  
