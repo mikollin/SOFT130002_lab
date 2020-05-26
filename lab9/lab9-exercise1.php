@@ -13,9 +13,15 @@
 //echo "<br>"; //notice we must echo tags in php.
 //$date =date('l, F jS , Y h:i:s ');
 //echo "This page was generated: " . $date . "<hr/>";
-$remaining = 365+1-date("z");
-echo "There are ". $remaining . " days left in the year";
-
+if(date('L')==0)
+{
+    $remaining = 365 - date("z");
+    echo "There are " . $remaining . " days left in the year";
+}
+else if(date('L')==1) { //date() returns 1 if is a leap year
+    $remaining = 365 + 1 - date("z");
+    echo "There are " . $remaining . " days left in the leap year";
+}
 ?>
 </body>
 </html>
