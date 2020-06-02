@@ -192,7 +192,12 @@ $conn->close();
 
 
 
+### `lab10-exercise10.php`  screenshots
 
+![exercise10-1](screenshots/exercise10-1.png)
 
+![exercise10-2](screenshots/exercise10-2.png)
 
+![exercise10-3](screenshots/exercise10-3.png)
 
+首先先像前面一样建立pdo对象进行一系列的设置，然后按照GenreId来从Genres中取出图片的id，name和description，对于每一个数据调用outputSingleGenre($row)写html来展示如上第一张图，同时调用constructGenreLink($id, $label)来构建图片和标题的超链接，会重定向到一个genre.php文件并且加上参数为GenreId，这里是显示每张图片的详细信息。通过读取GenreId的方式来用预定义语句取数据库中找到相关数据并显示在html中，包括图片名，图片id构成的图片所属路径的文件名，相关链接等，详细内容的展示都在这个页面通过传入的id不同而动态改变，包括标题，图片，简介，连接，和连接上显示的对应标题信息等等均动态生成。

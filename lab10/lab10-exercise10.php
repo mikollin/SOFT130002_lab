@@ -10,7 +10,7 @@ function outputGenres() {
         $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = 'select GenreId, GenreName, Description from Genres Order By EraID';
+        $sql = 'select GenreId, GenreName, Description from Genres Order By GenreId';
         $result = $pdo->query($sql);
 
         while ($row = $result->fetch()) {
