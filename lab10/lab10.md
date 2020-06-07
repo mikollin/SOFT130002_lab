@@ -133,14 +133,14 @@ _You should see message about one row being inserted._
 ## Exercise5: BUILD AN INDEX  
 **Do not need to take screenshots**  
 
-1. In phpMyAdmin, click on the **art** database, click on the artworks table, and then click on
+1. In phpMyAdmin, click on the **art** database, click on the **Artists** table, and then click on
    the **Structure** tab.  
    
 2. In the **Structure** page, click on the **Indexes** link.  
 _You will see a list of already-existing indexes. The import script for this database already has created indexes for the primary key, the foreign keys, and a two other fields._  
 
 3. Click the **Go** button in the section that begins Create an index  
-4. In the pop-up window, name the index YearOfWork, the index type INDEX, and the column YearOfWork as shown in Figure2. Click **Go**.  
+4. In the pop-up window, name the index YearOfBirth, the index type INDEX, and the column YearOfBirth as shown in Figure2. Click **Go**.  
    ![figure2](./figures/2.png)  
    
 ## Exercise6: CREATING USERS IN PHPADMIN
@@ -280,13 +280,17 @@ For example, the  **username** we set is `testuser` and **password** is `mypassw
    function outputSinglePainting($row) {
       echo '<div class="item">';
       echo '<div class="image">';
-      echo '<img src="images/art/works/square-medium/' .$row['ImageFileName'] .'.jpg">'; echo '</div>';
-      echo '<div class="content">'; echo '<h4 class="header">'; echo $row['Title'];
+      echo '<img src="images/art/works/square-medium/' .$row['ImageFileName'] .'.jpg">'; 
+      echo '</div>';
+      echo '<div class="content">';
+      echo '<h4 class="header">'; 
+      echo $row['Title'];
       echo '</h4>';
       echo '<p class="description">';
       echo $row['Excerpt'];
       echo '</p>';
-      echo '</div>'; // end class=content echo '</div>'; // end class=item
+      echo '</div>'; // end class=content 
+      echo '</div>'; // end class=item
    }
    ```
 4. Test in browser. Take screenshots of the web page.  
@@ -334,7 +338,7 @@ This part is optional. But it may be helpful to your Project2~
          $pdo = new PDO(DBCONNSTRING,DBUSER,DBPASS); 
          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    
-         $sql = 'select GenreId, GenreName, Description from Genres Order By EraID';
+         $sql = 'select GenreId, GenreName, Description from Genres Order By GenreID';
          $result = $pdo->query($sql); 
          
          while ($row = $result->fetch()) {
@@ -356,7 +360,8 @@ This part is optional. But it may be helpful to your Project2~
       echo '</div>';
       echo '<div class="extra">';
       echo '<h4>';
-      echo constructGenreLink($row['GenreId'], $row['GenreName']); echo '</h4>';
+      echo constructGenreLink($row['GenreId'], $row['GenreName']);
+      echo '</h4>';
       echo '</div>'; // end class=extra
       echo '</div>'; // end class=card
       }
