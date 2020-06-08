@@ -1,3 +1,7 @@
+<?php
+//ob_start();
+session_start();
+?>
 <html lang="en">
 <head>
 
@@ -53,6 +57,7 @@ function validLogin(){
       <div class="jumbotron">
         <h1>
 <?php
+
    require_once("config.php");
 //   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     echo "Login attempted";
@@ -60,26 +65,44 @@ function validLogin(){
 //   else{
 //     echo "No Post detected";
 //   }
-
+//
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (validLogin()) {
         // add 1 day to the current time for expiry time
         $expiryTime = time() + 60 * 60 * 24;
-        $_SESSION['Username']=$_POST['username'];
+        $_SESSION['Username'] = $_POST['username'];
 
     } else {
         echo "login unsuccessful";
 
     }
-
+}
     if (isset($_SESSION['Username'])) {
         echo "Welcome " . $_SESSION['Username'];
+        echo "<br>";
         echo "<a href='logout.php'>Logout</a>";
     }
-}
 else{
     echo "No Post detected";
 }
+//
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//    if (validLogin()) {
+//        // add 1 day to the current time for expiry time
+//        $expiryTime = time() + 60 * 60 * 24;
+//        setcookie("Username", $_POST['username'], $expiryTime);
+//    } else {
+//        echo "login unsuccessful";
+//    }
+//}
+//    if (isset($_COOKIE['Username'])) {
+//        echo "Welcome " . $_COOKIE['Username'];
+//        echo "<br>";
+//        echo "<a href='logout.php'>Logout</a>";
+//    }
+//else{
+//    echo "No Post detected";
+//}
 
 ?>
 
@@ -92,6 +115,13 @@ if (!isset($_SESSION['Username'])){
 else{
     echo "This is some content";
 }
+//
+//if (!isset($_COOKIE['Username'])){
+//    echo getLoginForm();
+//}
+//else{
+//    echo "This is some content";
+//}
 ?>
  </div>
 </body>
