@@ -66,6 +66,18 @@ session不会占用传送流量。
 ?>
 ```
 
+然后这次lab让我对cookie最深切的体会就是，对cookie的赋值只有等下一次浏览请求时才能生效，即cookie在使用时，在php端设置了cookie后并不能直接使用的，因为此时只是告诉浏览器我设置了一个cookie，以及参数是什么。需要浏览器刷新后才能使用刚才设置的这个cookie。若要马上使用需要：
+
+```php
+setcookie(“user_name”, “张三”, time()+3600); //此处设置cookie，过期时间为1小时
+$_COOKIE[‘user_name’] = “张三”; //直接将值再一次付给cookie后，下面就能直接使用cookiel了
+```
+
+即总结cookie生效过程：
+
+当我们首次访问设置Cookie的页面时，服务器会把设置的Cookie值通过响应头发送过来，告诉浏览器将cookie存储的本地相应文件夹中（注意:第一次访问时本地还没有存储Cookie,所以此时获取不到值）;
+当第二次访问(或在进行cookie设置后,过期前所有的访问)时，请求头信息你中都会把Cookie值携带。
+
 就我个人体会感觉还是目前的lab、pj方面的还是session方便好用。
 
 本次lab帮我们完整的感受了整个cookie和session的使用过程，包括set和unset的方法和查看信息等等。更全面理解了cookie和session保存状态的功能，也两种方式相互对比理解，更深入。
